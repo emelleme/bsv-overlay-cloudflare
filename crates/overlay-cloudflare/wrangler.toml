@@ -1,20 +1,20 @@
-name = "bsv-overlay-cloudflare"
+name = "bsv-overlay-staging"
 main = "build/worker/shim.mjs"
 compatibility_date = "2024-12-01"
 
-account_id = "<your-cloudflare-account-id>"
+account_id = "fb32a6889eb27c5ce8ebdc240a501a35"
 
 [build]
 # Pin worker-build to ^0.7 — newer 0.8+ requires worker crate ≥0.8 but the
 # project pins worker 0.7.5. Without the version pin, `cargo install` grabs
 # the latest worker-build and the build fails with "Unsupported version
 # worker@0.7.5, expected at least worker@0.8.0".
-command = "cargo install -q --version ^0.7 worker-build && worker-build --release"
+command = "cargo install -q --version \"^0.7\" worker-build && worker-build --release"
 
 [[d1_databases]]
 binding = "OVERLAY_DB"
-database_name = "<your-d1-name>"
-database_id = "<your-d1-id>"
+database_name = "bsv-overlay-staging"
+database_id = "d89b2f87-2e1b-47fa-9b1e-f4ecf0930d53"
 
 [vars]
 ENVIRONMENT = "production"
